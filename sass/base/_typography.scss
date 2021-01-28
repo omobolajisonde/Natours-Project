@@ -1,0 +1,107 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size:16px; */
+  line-height: 1.7;
+  color: $color-grey;
+}
+
+.primary-heading {
+  text-transform: uppercase;
+  color: $color-white;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+  text-align: center;
+
+  &--main {
+    display: inline-block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    /*
+      animation-delay:3s;
+      animation-iteration-count: 3;
+      */
+
+    @include responsive(tab-port) {
+      font-size: 4.5rem;
+      letter-spacing: 2.5rem;
+      transform: translateX(3px);
+    }
+
+    @include responsive(phone) {
+      font-size: 4rem;
+      letter-spacing: 2rem;
+    }
+  }
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1.75rem;
+    animation-name: moveInRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+
+    @include responsive(tab-port) {
+      font-size: 2rem;
+      letter-spacing: 0.8rem;
+    }
+
+    @include responsive(phone) {
+      font-size: 1.3rem;
+      letter-spacing: 1rem;
+    }
+  }
+}
+
+.secondary-heading {
+  color: $color-primary-dark;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+  @supports (-webkit-background-clip: text) or (background-clip: text) {
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @include responsive(tab-land) {
+    font-size: 2.5rem;
+  }
+
+  @include responsive(tab-port) {
+    font-size: 2rem;
+  }
+  @include responsive(phone) {
+    font-size: 1.5rem;
+  }
+  &:hover {
+    transform: skew(5deg, 2deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.tertiary-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.paragraph {
+  font-size: 1.5rem;
+  text-align: justify;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

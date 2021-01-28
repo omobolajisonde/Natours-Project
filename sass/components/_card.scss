@@ -1,0 +1,323 @@
+.card {
+  // Functionality styling
+  height: 53rem;
+  position: relative;
+  padding: 1.5rem;
+  @supports (perspective: 150rem) or (-webkit-perspective: 150rem) {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+  }
+  &__side {
+    width: 100%;
+    height: 53rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+    &--front {
+      background-color: $color-white;
+    }
+    &--back {
+      transform: rotateY(180deg);
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+  &:hover &__side {
+    &--front {
+      transform: rotateY(-180deg);
+    }
+    &--back {
+      transform: rotateY(0);
+    }
+  }
+
+  // Front side styling
+  &__picture {
+    height: 20rem;
+    background-size: cover;
+    @supports (background-blend-mode: soft-light) or
+      (-webkit-background-blend-mode: soft-light) {
+      background-blend-mode: soft-light;
+    }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      height: 23rem;
+    }
+    &--01 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.3),
+          rgba($color-secondary-dark, 0.3)
+        ),
+        url(../img/nat-small-5.jpg);
+
+      @media only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi) {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-secondary-light, 0.3),
+            rgba($color-secondary-dark, 0.3)
+          ),
+          url(../img/nat-5.jpg);
+      }
+
+      @supports (background-blend-mode: soft-light) or
+        (-webkit-background-blend-mode: soft-light) {
+        background-image: linear-gradient(
+            to right bottom,
+            $color-secondary-light,
+            $color-secondary-dark
+          ),
+          url(../img/nat-small-5.jpg);
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 2),
+          only screen and (min-resolution: 192dpi) {
+          background-image: linear-gradient(
+              to right bottom,
+              $color-secondary-light,
+              $color-secondary-dark
+            ),
+            url(../img/nat-5.jpg);
+        }
+      }
+    }
+    &--02 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.3),
+          rgba($color-primary-dark, 0.3)
+        ),
+        url(../img/nat-small-6.jpg);
+
+      @media only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi) {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.3),
+            rgba($color-primary-dark, 0.3)
+          ),
+          url(../img/nat-6.jpg);
+      }
+
+      @supports (background-blend-mode: soft-light) or
+        (-webkit-background-blend-mode: soft-light) {
+        background-image: linear-gradient(
+            to right bottom,
+            $color-primary-light,
+            $color-primary-dark
+          ),
+          url(../img/nat-small-6.jpg);
+        @media only screen and (-webkit-min-device-pixel-ratio: 2),
+          only screen and (min-resolution: 192dpi) {
+          background-image: linear-gradient(
+              to right bottom,
+              $color-primary-light,
+              $color-primary-dark
+            ),
+            url(../img/nat-6.jpg);
+        }
+      }
+    }
+    &--03 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.3),
+          rgba($color-tertiary-dark, 0.3)
+        ),
+        url(../img/nat-small-7.jpg);
+
+      @media only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi) {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-tertiary-light, 0.3),
+            rgba($color-tertiary-dark, 0.3)
+          ),
+          url(../img/nat-7.jpg);
+      }
+
+      @supports (background-blend-mode: soft-light) or
+        (-webkit-background-blend-mode: soft-light) {
+        background-image: linear-gradient(
+            to right bottom,
+            $color-tertiary-light,
+            $color-tertiary-dark
+          ),
+          url(../img/nat-small-7.jpg);
+        @media only screen and (-webkit-min-device-pixel-ratio: 2),
+          only screen and (min-resolution: 192dpi) {
+          background-image: linear-gradient(
+              to right bottom,
+              $color-tertiary-light,
+              $color-tertiary-dark
+            ),
+            url(../img/nat-7.jpg);
+        }
+      }
+    }
+  }
+  &__heading {
+    font-size: 2.6rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: $color-white;
+    text-align: right;
+    position: absolute;
+    top: 10.5rem;
+    right: 0.8rem;
+    width: 75%;
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      right: 2rem;
+    }
+    &--span {
+      padding: 1rem 1.5rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      &-01 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.8),
+          rgba($color-secondary-dark, 0.8)
+        );
+      }
+      &-02 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.8),
+          rgba($color-primary-dark, 0.8)
+        );
+      }
+      &-03 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.8),
+          rgba($color-tertiary-dark, 0.8)
+        );
+      }
+    }
+  }
+
+  &__details {
+    padding: 1rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0px auto;
+      li {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 1.5rem;
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-light-grey-2;
+        }
+      }
+    }
+  }
+
+  // Back side styling
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price {
+    &--box {
+      padding: 5rem 2rem;
+      text-align: center;
+      color: $color-white;
+    }
+    &--only {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+    }
+    &--value {
+      font-size: 6rem;
+      font-weight: 10;
+      margin-bottom: 5rem;
+    }
+  }
+
+  // @include responsive(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    height: auto;
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 0;
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+      &--back {
+        transform: rotateY(0);
+        -webkit-clip-path: polygon(0 17%, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 17%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+    &:hover &__side {
+      &--front {
+        transform: rotateY(0);
+      }
+    }
+
+    &__details {
+      padding: 1.5rem 3rem;
+    }
+
+    // Back side styling
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 3rem 4rem 4rem 4rem;
+      @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        padding: 7rem 4rem 4rem 4rem;
+      }
+    }
+
+    &__price {
+      &--box {
+        padding: 2rem 1rem;
+      }
+      &--only {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+      }
+      &--value {
+        font-size: 3.7rem;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3px 0.6rem rgba($color-black, 0.15);
+  border-radius: 3px;
+  background-color: rgba($color-white, 0.7);
+  padding: 5rem;
+  padding-left: 8rem;
+  transform: skewX(-12deg);
+
+  @include responsive(tab-port) {
+    width: 100%;
+    padding: 3rem;
+  }
+
+  @include responsive(phone) {
+    transform: skewX(0);
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    @supports (shape-outside: circle(50% at 50% 50%)) {
+      shape-outside: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      border-radius: none;
+    }
+
+    @include responsive(tab-port) {
+      transform: translateX(-1.5rem) skewX(12deg);
+    }
+    @include responsive(phone) {
+      transform: translateX(-1.4rem) skewX(0);
+    }
+  }
+
+  &__img {
+    height: 100%;
+    transform: translateX(-3rem) scale(1.4);
+    transition: all 0.5s;
+  }
+
+  &__text {
+    font-size: $default-font;
+    transform: skewX(12deg);
+    @include responsive(phone) {
+      transform: skewX(0);
+    }
+  }
+
+  &__cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    opacity: 0;
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    transition: all 0.5s;
+  }
+
+  &:hover &__cap {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-3rem) scale(1);
+    filter: blur(2.5px) brightness(80%);
+  }
+}

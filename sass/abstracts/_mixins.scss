@@ -1,0 +1,46 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+  MEDIA QUERY MANAGER
+  -phone: 600px
+  -tab-portrait: 900px
+  -tab-landscape: 1200px 
+  -big-desktop: 1800px
+*/
+
+// Instead of hard coding the min/max widths, it's better to make them relative to what the user's browser considers as 1em(default 16px)
+@mixin responsive($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-port) {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-land) {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == big-desktop) {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
