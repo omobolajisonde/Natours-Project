@@ -2,10 +2,10 @@
   "name": "natours-project",
   "version": "1.0.0",
   "description": "...a site where you can find really adventurous and pleasing TOURS.",
-  "main": "index.html",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Sonde Omobolaji H.",
   "license": "ISC",
